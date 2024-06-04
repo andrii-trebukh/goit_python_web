@@ -1,0 +1,40 @@
+{% extends "quotesapp/base.html" %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'quotesapp:quote' %}">
+    {% csrf_token %}
+    <div style="padding: 10px">
+        <label>Choose the author:
+            <select name="author" required>
+                {% for author in authors %}
+                <option value="{{author.id}}">{{author.fullname}}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div style="padding: 10px">
+        <label>Enter the quote:
+            {{form.quote}}
+        </label>
+        <span>{{ form.errors.quote }}</span>
+    </div>
+    <div style="padding: 10px">
+        <label>Choose the tags:
+            <div class="tags-checkbox">
+                {% for tag in tags %}
+                <div>
+                    <input type="checkbox" name="tags" value="{{tag.name}}">
+                    <label for="tags">{{tag.name}}</label>
+                </div>
+                {% endfor %}
+            </div>
+        </label>
+    </div>
+    <div class="grid">
+        <button type="submit">Submit</button>
+        <button type="reset" class="secondary">Reset</button>
+    </div>
+</form>
+
+{% endblock %}

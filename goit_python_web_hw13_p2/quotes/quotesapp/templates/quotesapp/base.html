@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Quotes</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quotesapp/main.css' %}">
+</head>
+<body>
+    <header class="container">
+        <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+            <h1>
+                <a href="/" style="text-decoration: none"><b> Quotes </b></a>
+            </h1>
+            <ul>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="/seed">Seed</a>
+                </li>
+                <li>
+                    <a href="/add-author">Add author</a>
+                </li>
+                <li>
+                    <a href="/quote">Add quote</a>
+                </li>
+                <li>
+                    <a href="/add-tag">Add tag</a>
+                </li>
+                <li>
+                    <a href="/users/logout" role="button">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/users/signup">Signup</a>
+                </li>
+                <li>
+                    <a href="/users/login">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        {% block content %} {% endblock %}
+    </main>
+</body>
+</html>

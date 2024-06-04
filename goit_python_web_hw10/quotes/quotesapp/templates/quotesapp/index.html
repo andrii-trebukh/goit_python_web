@@ -1,0 +1,52 @@
+{% extends "quotesapp/base.html" %}
+
+{% block content %}
+<div>
+    {% if quotes %}
+    <div class="quotes">
+        {% for quote in quotes %}
+        <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
+            <span class="text" itemprop="text">{{quote.quote}}</span>
+            <span>by <small class="author" itemprop="author">{{quote.author.fullname}}</small>
+            <a href="/author/{{quote.author.id}}">(about)</a>
+            </span>
+            <div class="tags">
+                Tags:
+                {% for tag in quote.tags_all%}
+                <a href="/tag/{{tag.name}}" class="tag">
+                    {{tag.name}}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if top_ten %}
+    <div class="top_ten">
+        <h3>Top Ten tags:</h3>
+        {% for tag in top_ten %}
+        <div>
+            <a href="/tag/{{tag.name}}">{{tag.name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% else %}
+    <h2>No quotes found!</h2>
+    {% endif %}
+    <nav class="nav_pages">
+        <ul>
+            {% if prev_page %}
+            <li>
+                <a href="/page/{{prev_page}}" class="nav_previous"><span aria-hidden="true">←</span> Previous</a>
+            </li>
+            {% endif %}
+            {% if next_page %}
+            <li>
+                <a href="/page/{{next_page}}" class="nav_next">Next <span aria-hidden="true">→</span></a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endblock %}

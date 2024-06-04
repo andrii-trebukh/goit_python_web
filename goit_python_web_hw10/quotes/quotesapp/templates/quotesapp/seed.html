@@ -1,0 +1,18 @@
+{% extends "quotesapp/base.html" %}
+
+{% block content %}
+{% if not seed_done %}
+<div>
+    <ul>
+        <li style="list-style: none">
+            <a href="/seed/mongodb">Seed from Mongo DB</a>
+        </li>
+        <li style="list-style: none">
+            <a href="/seed/scrapy">Seed by scraping https://quotes.toscrape.com</a>
+        </li>
+    </ul>
+</div>
+{% else %}
+<h2>Seed done</h2>
+{% endif %}
+{% endblock %}

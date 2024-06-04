@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "personal-assistant"
+version = "0.1.0"
+description = "Fast and easy to use personal assisstant to store contacts and notes"
+authors = [
+    "andrii-trebukh <andrew.trebukh@gmail.com>",
+    "Ruslan Bilokoniuk",
+    "Олена Сазонець",
+    "Olha Lialina",
+    "Eugene Vlasenko"
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.7"
+colored = "2.2.4"
+prompt-toolkit = "3.0.43"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,8 @@
+__pycache__
+env
+postgresql_db
+run_docker_postgresql.sh
+.env
+alembic.ini
+migrations
+test.db

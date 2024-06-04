@@ -1,0 +1,6 @@
+__pycache__
+env
+run_mongo_docker.sh
+mongo_db
+config_local.ini
+

@@ -1,0 +1,7 @@
+__pycache__
+env
+postgresql_db
+authors.json
+qoutes.json
+run_docker_postgresql.sh
+.env
